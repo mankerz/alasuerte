@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A la Suerte...</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>A la suerte..</h1>
+    </header>
+    <section class="container_supreme">
+      <div id="container_game">
+        <div class="title">Cara o Cruz</div>
+        <div class="subtitle">Lanza la moneda al aire</div>
+
+        <button id="btn">Hacela Rodar</button>
+
+        <h2>apreta el boton padre..</h2>
+        <div class="container_moneda">
+          <img src="img/touch.png" id="image" alt="" />
+        </div>
+        <h3 id="txt"></h3>
+      </div>
+      <div class="container_info">
+        <h3>¿Qué es "Cara o Cruz"?</h3>
+        <p>
+          El cara o cruz es un juego de azar en el que se emplea una moneda. Los
+          participantes tienen que elegir un lado de la moneda y lanzarla. Gana
+          quién acierte qué lado de la moneda caerá cara arriba.
+        </p>
+      </div>
+      <div class="add"></div>
+    </section>
+    <aside></aside>
+
+    <footer>
+      <p>
+        Echo con el Proyecto
+        <a target="_blank" href="https://escueladevrock.com/">Cindoors</a>
+        <br />
+        by:
+        <a href="https://www.manusanchez.xyz" target="_blank">Manu Sanchez</a>
+      </p>
+    </footer>
+
+    <script>
+      var boton = document.getElementById("btn");
+      var imagen = document.getElementById("image");
+      var txt = document.getElementById("txt");
+      var moneda;
+      var suerte = (max, min) => {
+        return Math.round(Math.random() * (max - min) + min);
+      };
+
+      boton.addEventListener("click", () => {
+        setTimeout(function () {
+          var resultado = suerte(1, 0);
+          if (resultado === 1) {
+            imagen.src = "img/cara_moneda.png";
+            txt.innerHTML = "Cara";
+          } else {
+            imagen.src = "img/cruz_moneda.png";
+            txt.innerHTML = "Seca";
+          }
+        }, 1000);
+        imagen.src = "img/moneda_girando.gif";
+        txt.innerHTML = "Girando..";
+      });
+    </script>
+  </body>
+</html>
